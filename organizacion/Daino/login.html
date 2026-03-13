@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login Alumno - REINA</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="iconos/icono.ico" type="image/x-icon"> <!-- Ícono actualizado -->
+    <script type="module" src="js/login.js" defer></script>
+  </head>
+<body>
+  <h1>Ingresar Alumno</h1>
+  <input type="text" id="username" placeholder="Nombre del alumno" aria-label="Nombre del alumno" />
+  <button type="submit" id="loginBtn">Ingresar</button>
+  <div id="msg" role="alert" aria-live="polite"></div>
+
+  <!-- EMOJI (sol) -->
+  <div class="emoji-top-right">
+    <div class="face" id="emojiBtn" role="button" tabindex="0" aria-label="Abrir selección de perfiles">
+      <div class="eye eye-left"></div>
+      <div class="eye eye-right"></div>
+      <div class="mouth"></div>
+      <span class="zzz">Z</span>
+      <span class="zzz z2">Z</span>
+      <span class="zzz z3">Z</span>
+    </div>
+  </div>
+
+  <!-- FAB OVNI: botón fijo en esquina superior izquierda (FUERA DEL POPUP) -->
+  <button type="button" id="addBtn" class="add-fab" aria-label="Añadir alumno"></button>
+
+  <!-- POPUP DE PERFILES -->
+  <div id="popup" class="popup-container" aria-hidden="true">
+    <img src="imagenes/arbol1.png" alt="" class="arbol arbol-izquierdo">
+    <img src="imagenes/arbol2.png" alt="" class="arbol arbol-derecho">
+
+    <div class="popup-content">
+      <h2>¿Quién eres?</h2>
+      <div class="perfil-row" id="perfilContainer"></div>
+    </div>
+  </div>
+
+  <!-- PANEL FLOTANTE IZQUIERDA PARA CREAR ALUMNO -->
+  <form id="addPanel" class="side-panel" aria-hidden="true">
+    <h3>Nuevo alumno</h3>
+
+    <div class="field">
+      <label for="addName">Nombre completo del niño/a</label>
+      <input id="addName" type="text" autocomplete="off" />
+    </div>
+
+    <div class="field">
+      <label for="addTeacher">Maestro a cargo</label>
+      <select id="addTeacher">
+        <option value="">Selecciona maestro</option>
+      </select>
+    </div>
+
+    <div class="actions">
+      <button id="createBtn" type="button" class="primary">Crear</button>
+      <button id="cancelBtn" type="button" class="ghost">Cancelar</button>
+    </div>
+  </form>
+</body>
+</html>

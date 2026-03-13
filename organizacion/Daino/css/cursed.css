@@ -1,0 +1,175 @@
+/* Herramientas de cabecera */
+.header-tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    z-index: 10;
+}
+
+#searchBar {
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 2px solid #333;
+    width: 350px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.plus-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #333;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.plus-btn:hover {
+    transform: scale(1.1) rotate(90deg);
+}
+
+/* --- GRID DE TARJETAS (CORREGIDO PARA HORIZONTAL) --- */
+.container-grid {
+    display: grid;
+    /* Crea columnas automáticamente según el espacio disponible */
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+/* Tarjeta base */
+.card {
+    background: white;
+    padding: 8px;
+    border: 1px solid #ddd;
+    position: relative;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 180px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border: 4px solid #f0f0f0;
+}
+
+/* Badge de Rareza */
+.rarity-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 3px 10px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 4px;
+    z-index: 5;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+/* Colores de Rareza */
+.comun .rarity-badge { background: #95a5a6; }
+.raro .rarity-badge { background: #3498db; }
+.epico .rarity-badge { background: #9b59b6; }
+.legendario .rarity-badge { background: #f1c40f; color: #000; }
+.mitico .rarity-badge { background: #e67e22; }
+.god .rarity-badge { background: #e74c3c; animation: glow 1s infinite alternate; }
+.secreto .rarity-badge { background: #2c3e50; border: 1px solid gold; }
+.og .rarity-badge { background: #27ae60; }
+
+@keyframes glow {
+    from { box-shadow: 0 0 5px #ff0000; }
+    to { box-shadow: 0 0 15px #ff0000; }
+}
+
+.card-footer {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.card-footer p {
+    font-family: 'Fredoka One', cursive;
+    color: #b33939;
+    margin: 8px 0;
+    font-size: 0.9rem; /* Fuente un poco más pequeña */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Si el nombre es muy largo, pone "..." */
+}
+
+/* Botones de acción */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.edit-btn { background: #f39c12; color: white; border: none; padding: 8px 12px; cursor: pointer; border-radius: 5px; }
+.delete-btn { background: #e74c3c; color: white; border: none; padding: 8px 12px; cursor: pointer; border-radius: 5px; }
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    width: 320px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+}
+
+.modal-content input, .modal-content select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#saveBtn { background: #27ae60; color: white; }
+#cancelBtn { background: #95a5a6; color: white; }
+/* Botones de acción más pequeños */
+.edit-btn, .delete-btn {
+    padding: 5px 8px;
+    font-size: 0.8rem;
+}

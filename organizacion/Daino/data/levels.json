@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Vocales",
+        "audio": "audio/canciones/vocales.mp3",
+        "keywords": ["a", "e", "i", "o", "u"]
+    },
+    {
+        "id": 2,
+        "name": "Días de la semana",
+        "audio": "audio/canciones/dias.mp3",
+        "keywords": ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+    },
+    {
+        "id": 3,
+        "name": "Cuentos que hablan",
+        "audio": "audio/canciones/ejemplo.mp3",
+        "keywords": ["ferrocarril", "trabalenguas", "rimas"]
+    }
+]

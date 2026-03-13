@@ -1,0 +1,121 @@
+body {
+    background-color: #f4f4f9; /* Fondo pastel */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.adivinanza-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.adivinanza-texto {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #f39c12;
+    background-color: #ffebcd;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de las respuestas */
+.respuestas {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenedor */
+    align-items: center; /* Centra verticalmente las imágenes */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin-top: 40px;
+    position: relative; /* Necesario para posicionar las imágenes de forma absoluta */
+    height: 300px; /* Altura fija para el contenedor */
+}
+
+/* Estilo común para todas las respuestas */
+.respuesta1, .respuesta2, .respuesta3 {
+    height: 200px; /* Mantén la altura fija para todas las imágenes */
+    width: auto; /* Mantiene la proporción de la imagen */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin recortarse */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    position: absolute; /* Posicionamiento absoluto para control preciso */
+}
+
+/* Especificación para respuesta1 (centro vertical pero a la izquierda) */
+.respuesta1 {
+    left: 25%; /* Posiciona en el centro izquierdo de la página */
+    transform: translateX(-50%); /* Ajusta para centrar exactamente */
+}
+
+/* Especificación para respuesta2 (en el centro exacto) */
+.respuesta2 {
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Ajusta para centrar exactamente */
+}
+
+/* Especificación para respuesta3 (centro vertical pero a la derecha) */
+.respuesta3 {
+    left: 75%; /* Posiciona en el centro derecho de la página */
+    transform: translateX(-50%); /* Ajusta para centrar exactamente */
+}
+
+/* Efecto hover para todas las imágenes */
+.respuesta1:hover, .respuesta2:hover, .respuesta3:hover {
+    transform: translateX(-50%) scale(1.05); /* Mantiene el centrado y agranda */
+}
+
+/* Para mantener la transformación en respuesta2 al hacer hover */
+.respuesta2:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+/* Estilo para el cuadro flotante */
+.resultado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo opaco */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s;
+}
+
+.resultado-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 123, 255, 0.5); /* Azul pastel */
+    z-index: -1;
+}
+
+.resultado-content {
+    color: #f39c12;
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.resultado-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.resultado p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}

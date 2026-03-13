@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>REINA - Inicio Happy Book</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script type="module" src="js/index.js" defer></script>
+</head>
+<body>
+    <a id="logout" class="back-button" aria-label="Cerrar sesión">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" stroke="#f39c12" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Cerrar sesión
+    </a>
+
+    <div class="container" id="mainContent">
+        <div class="background-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+            <div class="shape shape3"></div>
+        </div>
+
+        <button id="btnLeft" style="display: none !important;"></button>
+        <button id="btnRight" style="display: none !important;"></button>
+
+        <div class="illustration-wrapper">
+            <div id="text" class="text">¡Vamos a aprender jugando!</div>
+            
+            <video id="illustration" class="illustration" autoplay loop muted playsinline>
+                <source src="imagenes/perfiles/say hello.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</body>
+</html>

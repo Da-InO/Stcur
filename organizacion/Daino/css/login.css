@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+html, body { height: 100%; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Fredoka One', cursive, sans-serif;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+  background: url('../imagenes/fondologin.png') no-repeat center fixed;
+  background-size: 100% 100%;
+  color: #e67e22;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+
+/* ⛔️ No aplicar estilos globales al botón OVNI */
+input,
+button:not(.add-fab) {
+  font-size: 1.5rem; padding: 10px; margin: 10px 0; border-radius: 8px;
+  border: 1px solid #ccc; width: 300px; background-color: rgba(255,255,255,.9);
+}
+button:not(.add-fab) { cursor: pointer; background: #f39c12; color:#fff; border:none; transition: background .3s; }
+button:not(.add-fab):hover { background:#e67e22; }
+
+#msg { margin-top: 15px; font-weight: 700; min-height: 1.5em; color:#e67e22; text-align:center; }
+
+/* ---------- EMOJI (sol) ---------- */
+.emoji-top-right { position:absolute; top:15px; right:15px; width:150px; height:150px; z-index:10; }
+.emoji-top-right .face{ width:100%; height:100%; background:radial-gradient(circle at 40% 40%, #ffd55e, #f9a825); border-radius:50%; position:relative; box-shadow:0 10px 30px rgba(0,0,0,.2), inset -5px -5px 15px #fff4c4; transition:all 1s ease; cursor:pointer; }
+.emoji-top-right .eye{ width:30px; height:15px; position:absolute; top:55px; background:transparent; border-bottom:4px solid #333; border-radius:50%; box-shadow:0 2px 3px rgba(0,0,0,.2); transition:all .8s ease; }
+.emoji-top-right .eye-left{ left:30px;} .emoji-top-right .eye-right{ right:30px;}
+.emoji-top-right .mouth{ width:25px; height:25px; background:radial-gradient(circle, #333 40%, #111); border-radius:50%; position:absolute; bottom:25px; left:50%; transform:translateX(-50%); box-shadow:0 3px 6px rgba(0,0,0,.3); transition:all .8s ease;}
+.emoji-top-right .face:hover .eye{ width:15px; height:25px; background:radial-gradient(#000 60%, #222); border:none; top:45px;}
+.emoji-top-right .face:hover .mouth{ width:50px; height:20px; background:transparent; border:5px solid #000; border-top:none; border-radius:0 0 40px 40px; bottom:40px;}
+.emoji-top-right .zzz{ position:absolute; color:#5a85e0; font-size:40px; font-weight:bold; animation:floatZ 3s ease-in-out infinite; opacity:0; text-shadow:0 0 10px #aecbfa; top:0; left:60px;}
+.emoji-top-right .zzz.z2{ animation-delay:1s; left:75px;} .emoji-top-right .zzz.z3{ animation-delay:2s; left:90px;}
+.emoji-top-right .face:hover .zzz{ animation-play-state:paused; opacity:0!important;}
+@keyframes floatZ{ 0%{transform:translateY(0);opacity:0;} 30%{opacity:1;} 100%{transform:translateY(-80px);opacity:0;} }
+
+/* ---------- POPUP ---------- */
+body.popup-active h1,
+body.popup-active input,
+body.popup-active button:not(.add-fab) {
+  transform: translateY(-80px);
+  transition: transform .5s ease;
+}
+.popup-container{
+  position:fixed; bottom:-100%; left:0; right:0;
+  background:url('../imagenes/fondo2.png') no-repeat center; background-size:auto;
+  border-top-left-radius:20px; border-top-right-radius:20px;
+  padding:70px; text-align:center; transition:bottom .5s ease; z-index:20;
+  box-shadow:0 -4px 10px rgba(0,0,0,.2); overflow:visible;
+}
+body.popup-active .popup-container{ bottom:0; }
+
+.popup-content h2{ font-size:1.8rem; color:#fcbd43; margin-bottom:15px; text-align:center; }
+
+/* ---------- PERFILES (centrado) ---------- */
+.perfil-row{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:15px;
+  padding-left:0;
+  margin:0 auto;
+  width:100%;
+  max-width:1000px;
+  position:relative; z-index:2; min-height:120px;
+}
+.perfil{ text-align:center; }
+.perfil-img{ width:80px; height:80px; border-radius:12px; object-fit:cover; border:2px solid #ccc; transition:transform .3s; }
+.perfil-img:hover{ transform:scale(1.08); }
+.perfil p{ margin:6px 0 0; font-size:1rem; color:#fcbd43; }
+
+/* ---------- Árboles ---------- */
+.arbol{ position:absolute; bottom:0; width:380px; height:auto; z-index:1; opacity:0; transition:opacity .5s ease, transform .5s ease; }
+.arbol-izquierdo{ left:-5px; } .arbol-derecho{ right:-10px; }
+.popup-container.show .arbol{ opacity:1; transform:translateY(-30px); }
+
+/* ---------- FAB OVNI + PANEL (FIJOS, ESQUINA IZQUIERDA) ---------- */
+@keyframes ufoFloat {
+  0% { transform: translateY(0); }
+  50%{ transform: translateY(-6px); }
+  100%{ transform: translateY(0); }
+}
+
+.add-fab,
+.add-fab:hover,
+.add-fab:focus,
+.add-fab:active {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  width: 110px;
+  height: 110px;
+  padding: 0;
+  border: none !important;
+  outline: none;
+  background: url('../imagenes/perfiles/alienbutt.png') center / contain no-repeat transparent !important;
+  color: transparent !important;
+  cursor: pointer;
+  z-index: 120;
+  filter: drop-shadow(0 14px 20px rgba(0,0,0,.18));
+  animation: ufoFloat 3.2s ease-in-out infinite;
+  transition: transform .15s ease;
+}
+.add-fab:hover { transform: translateY(-3px) scale(1.03); }
+.add-fab:active{ transform: translateY(0) scale(.98); }
+.add-fab:focus-visible{ outline: 3px solid rgba(255,255,255,.9); outline-offset: 4px; border-radius: 16px; }
+
+/* Panel lateral */
+.side-panel{
+  position: fixed;
+  top: 92px;
+  left: 18px;
+  width: 360px; max-width: 90vw;
+  padding: 16px;
+  background: rgba(255,255,255,.98);
+  border-radius: 16px;
+  box-shadow: 0 16px 36px rgba(0,0,0,.18);
+  display: none; z-index: 120;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.side-panel.show{ display:block; transform: translateY(0); opacity: 1; }
+
+.side-panel h3{ margin:0 0 10px; color:#333; text-shadow:none; font-weight:900; }
+.side-panel .field{ display:flex; flex-direction:column; gap:6px; margin-bottom:10px; text-shadow:none; }
+.side-panel label{ color:#333; font-size:1rem; text-align:left; }
+.side-panel input, .side-panel select{
+  width:100%; font-size:1rem; padding:5px; border-radius:8px; border:1px solid #ccc; background:#fff;
+}
+.side-panel .actions{ display:flex; gap:10px; margin-top:6px; }
+.side-panel .actions .primary{ flex:1; background:#f39c12; color:#fff; border:none; }
+.side-panel .actions .primary:hover{ background:#e67e22; }
+.side-panel .actions .ghost{ flex:1; background:#eee; color:#333; border:none; }
+.side-panel .actions .ghost:hover{ background:#ddd; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px){
+  .add-fab{ top: 12px; left: 12px; width: 90px; height: 90px; }
+  .side-panel{ top: 80px; left: 12px; width: calc(100vw - 24px); }
+}
+
+/* ---------- ANIMACIÓN SPINNER-TO-CHECKMARK ---------- */
+
+/* Estilo base para el botón cuando está en proceso */
+.side-panel .actions .primary.loading,
+.side-panel .actions .primary.success {
+    position: relative;
+    color: transparent; /* Ocultamos el texto original */
+    transition: color 0.3s ease;
+}
+
+/* El pseudo-elemento que será el spinner y luego el check */
+.side-panel .actions .primary.loading::after,
+.side-panel .actions .primary.success::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Transiciones para la transformación de spinner a check */
+    transition: width 0.2s ease, height 0.2s ease, border-width 0.2s ease, transform 0.3s ease-out;
+}
+
+/* Estado de carga: SPINNER */
+.side-panel .actions .primary.loading::after {
+    margin-top: -12px;
+    margin-left: -12px;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+/* Animación del spinner */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estado de éxito: CHECKMARK */
+.side-panel .actions .primary.success::after {
+    margin-top: -12px; 
+    margin-left: -6px;
+    width: 8px; /* Ancho de la línea del check */
+    height: 16px; /* Alto de la línea del check */
+    border: solid #ffffff;
+    border-width: 0 4px 4px 0; /* Esto forma la 'L' del check */
+    border-radius: 0;
+    transform: rotate(45deg); /* Gira la 'L' para que parezca un check */
+    animation: none; /* Detenemos la animación de giro */
+}
+
+/* Estilo para cuando los elementos están deshabilitados */
+.side-panel button:disabled, .side-panel input:disabled, .side-panel select:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

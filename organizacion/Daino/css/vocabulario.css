@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body {
+    font-family: 'Fredoka One', cursive, sans-serif;
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    background: #f0f9ff;
+    color: #e67e22;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* --- ESTA ES LA REGLA MÁS IMPORTANTE PARA LA POSICIÓN --- */
+.level-indicator {
+    position: absolute; /* Esto lo saca del centro */
+    top: 25px;          /* Lo alinea arriba */
+    right: 30px;        /* Lo alinea a la derecha */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #f39c12;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+#level-emoji {
+    font-size: 1.8rem;
+    text-shadow: none;
+}
+/* --- FIN DE LA SECCIÓN IMPORTANTE --- */
+
+.vocabulario-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.palabra-card {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 450px;
+    cursor: pointer;
+}
+
+#palabra-imagen {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: none;
+}
+
+#palabra-actual {
+    font-size: 2.5rem;
+    background: #fff;
+    padding: 10px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    user-select: none;
+    margin-bottom: 0;
+}
+
+
+
+#btn-siguiente {
+    font-size: 1rem;
+    padding: 8px 20px;
+    background-color: #f39c12;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btn-siguiente:hover {
+    background-color: #e67e22;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 1.7rem;
+    font-weight: 700;
+    min-height: 2.5em;
+    color: #e67e22;
+    text-align: center;
+}
+
+#listen-message {
+    margin-top: 10px;
+    font-size: 1.4rem;
+    color: #f39c12;
+    text-align: center;
+    display: none;
+}
+
+.listening-indicator {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 16px;
+    height: 16px;
+    background: red;
+    border-radius: 50%;
+    animation: pulse 1s infinite;
+    display: none;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* --- ESTILOS ANTIGUOS (OCULTOS) --- */
+/* Estas reglas se mantienen por si las usas en otro lugar, pero no afectan el nuevo diseño */
+
+section.letter-section {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #f39c12;
+    padding-bottom: 10px;
+    display: none; /* Oculto por defecto */
+}
+
+section.letter-section.active {
+    display: block;
+}
+
+h2.letter-title {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+    color: #f39c12;
+    user-select: none;
+}
+
+h3.level-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #34495e;
+    user-select: none;
+}
+
+ul.word-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+ul.word-list li {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(243,156,18,0.3);
+    padding: 15px 25px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+    min-width: 120px;
+    text-align: center;
+    position: relative;
+}
+
+ul.word-list li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(243,156,18,0.6);
+}
+
+/* ---- Estilos para el Video de Feedback a Pantalla Completa ---- */
+
+.feedback-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999; /* Para que esté por encima de todo */
+  display: none; /* Oculto por defecto */
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente opcional */
+}
+
+.feedback-overlay.show {
+  display: flex; /* Lo mostramos con esta clase */
+}
+
+#feedback-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que el video cubra toda la pantalla sin distorsionarse */
+}

@@ -1,0 +1,163 @@
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+    body {
+      font-family: 'Fredoka One', cursive, sans-serif;
+      text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+
+      /* ----- INICIO DE CAMBIOS ----- */
+      background-image: url('../imagenes/fondo22.png');
+      /* 1. Añade tu imagen */
+      background-size: cover;
+      /* 2. Hace que la imagen cubra toda la pantalla */
+      background-position: center;
+      /* 3. Centra la imagen */
+      background-repeat: no-repeat;
+      /* 4. Evita que la imagen se repita */
+      background-attachment: fixed;
+      /* 5. (Opcional) Fija el fondo al hacer scroll */
+      background-color: #def3fd;
+      /* Color de respaldo si la imagen no carga */
+      /* ----- FIN DE CAMBIOS ----- */
+
+      margin: 0;
+      color: #e67e22;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    main {
+      flex-grow: 1;
+      width: 100%;
+      max-width: 960px;
+    }
+
+    h1 {
+      margin-top: 0px;
+      margin-bottom: 30px;
+      font-size: 3.5rem;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .letter:hover {
+      transform: scale(1.07);
+    }
+
+    #eco-content::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    #eco-content::-webkit-scrollbar-thumb {
+      background-color: #f39c12;
+      border-radius: 4px;
+    }
+
+    #eco-content::-webkit-scrollbar-track {
+      background: #fff;
+    }
+
+    .btn {
+      position: fixed;
+      top: 50%;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      /* Reducido de 70px */
+      height: 50px;
+      /* Reducido de 70px */
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s, transform 0.2s;
+      user-select: none;
+      z-index: 20;
+      padding: 0;
+      /* Asegura que no haya padding extra */
+    }
+    
+    #eco-content {
+      position: fixed;
+      top: 55%;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      /* Reducido de 70px */
+      height: 50px;
+      /* Reducido de 70px */
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .letter {
+      cursor: pointer;
+      max-height: 27vw;
+      transition: transform 0.3s, opacity 0.3s;
+      flex-shrink: 0;
+    }
+
+    .arrow-image {
+      width: 150px;
+      /* o el tamaño que desees */
+      height: 150px;
+      transition: transform 0.2s ease-in-out;
+      /* añade transición suave */
+    }
+
+    .arrow-image:hover {
+      transform: scale(1.2);
+      /* agranda la imagen un 20% */
+    }
+
+    .btn-left {
+      left: 150px;
+      transform: translateY(-50%);
+    }
+
+    .btn-right {
+      right: 150px;
+      transform: translateY(-50%);
+    }
+
+    /* --- Estilos para el Buscador de Letras --- */
+
+.search-container {
+    position: absolute; /* Posicionamiento absoluto */
+    top: 25px;          /* Distancia desde arriba */
+    right: 30px;         /* Distancia desde la derecha */
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50px; /* Bordes redondeados */
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.search-container input[type="search"] {
+    border: none;
+    outline: none;
+    padding: 8px 15px;
+    font-size: 1rem;
+    font-family: Arial, sans-serif; /* Fuente simple para el input */
+    color: #333;
+    text-shadow: none; /* Quita la sombra de texto del body */
+    width: 150px;
+}
+
+.search-container .search-button {
+    background-color: #f8f8f8;
+    border: none;
+    padding: 0 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-container .search-button:hover {
+    background-color: #f0f0f0;
+}

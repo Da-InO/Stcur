@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karaoke Mágico</title>
+    <link rel="stylesheet" href="css/karaoke.css">
+    <link rel="stylesheet" href="css/BotonVolver.css">
+    <link rel="icon" href="iconos/icono.ico" type="image/x-icon"> <!-- Ícono actualizado -->
+</head>
+
+<body>
+    <a href="index.html?slide=karaoke" class="back-button" aria-label="Volver al inicio">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" stroke="#f39c12" stroke-width="2" fill="none" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+        Volver
+    </a>
+
+    <main class="karaoke-main">
+        <h1 id="Titulo">Karaoke Mágico</h1>
+
+        <div id="video-carousel-container">
+            <div id="video-carousel">
+            </div>
+            <button id="prev-btn" class="carousel-nav-btn" aria-label="Video Anterior">
+                <img src="imagenes/Izquierda.svg" alt="Mano apuntando a la izquierda" class="arrow-image">
+            </button>
+            <button id="next-btn" class="carousel-nav-btn" aria-label="Video Siguiente">
+                <img src="imagenes/Derecha.svg" alt="Mano apuntando a la derecha" class="arrow-image">
+            </button>
+        </div>
+        <video id="karaoke-video" style="width: 76%; max-height: 550px; display: none;" muted>
+            <track src="video/GraciasKaraoke.vtt" kind="subtitles" srclang="es" label="Español" default>
+        </video>
+        <div id="karaoke-content" style="text-align: center; margin-top: 1rem; display: none;">
+            <div id="lyrics-container"></div>
+
+            <div id="karaoke-phrase" style="margin-bottom: 1rem;"></div>
+            <p id="karaoke-feedback">Repite la frase para continuar.</p>
+            <button id="retry-button" style="display: none;">Intentar de nuevo</button>
+        </div>
+    </main>
+
+    <script src="js/karaoke.js" type="module"></script>
+</body>
+
+</html>

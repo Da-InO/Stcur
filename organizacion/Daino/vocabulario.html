@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vocabulario - REINA</title>
+  <link rel="stylesheet" href="css/vocabulario.css" />
+  <link rel="stylesheet" href="css/BotonVolver.css">
+  <script type="module" src="js/vocabulario.js"></script>
+</head>
+<body>
+  <a href="eco-aventura.html" class="back-button" aria-label="Volver">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M15 18l-6-6 6-6" stroke="#f39c12" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Volver
+  </a>
+
+  <div class="level-indicator">
+    <span id="nivel-actual"></span>
+    <span id="level-emoji"></span>
+  </div>
+
+  <h1>Pronunciación</h1>
+
+  <section id="dynamic-vocabulary" class="vocabulario-container">
+    <div class="palabra-card">
+      <img id="palabra-imagen" src="" alt="Imagen del vocabulario">
+      <div id="palabra-actual">Agua</div>
+    </div>
+  </section>
+
+  <div id="message" aria-live="polite"></div>
+  <div id="listen-message">🎤 ¡Escucha y repite!</div>
+
+  <div id="feedback-overlay" class="feedback-overlay">
+    <video id="feedback-video" muted playsinline></video>
+  </div>
+
+  <script type="module" src="js/vocabulario.js"></script>
+</body>
+</html>

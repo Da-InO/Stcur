@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REINA - Cursed Content</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cursed.css">
+    <link rel="icon" href="iconos/icono.ico" type="image/x-icon">
+</head>
+<body>
+    <a href="colores.html" class="back-button">
+        <svg viewBox="0 0 24 24" style="width:30px; height:30px; fill:none; stroke:#f39c12; stroke-width:2;">
+            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Volver
+    </a>
+
+    <div class="header-tools">
+        <input type="text" id="searchBar" placeholder="Buscar por nombre..." oninput="searchCards()">
+        <button id="addBtn" class="plus-btn" title="Agregar nuevo Noobini">+</button>
+    </div>
+
+    <div class="container-grid" id="cardsContainer">
+        </div>
+
+    <div id="modalForm" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Detalles del Noobini</h3>
+            
+            <div class="field">
+                <label for="cardName">Nombre del personaje:</label>
+                <input type="text" id="cardName" placeholder="Ej. Pizzanini" autocomplete="off">
+            </div>
+            
+            <div class="field">
+                <label for="cardCategory">Categoría (Rareza):</label>
+                <select id="cardCategory">
+                    <option value="comun">Comun</option>
+                    <option value="raro">Raro</option>
+                    <option value="epico">Epico</option>
+                    <option value="legendario">Legendario</option>
+                    <option value="mitico">Mitico</option>
+                    <option value="god">God</option>
+                    <option value="secreto">Secreto</option>
+                    <option value="og">OG</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="cardImage">Imagen (PNG o JPG):</label>
+                <input type="file" id="cardImage" accept="image/*">
+            </div>
+            
+            <div class="modal-buttons">
+                <button id="saveBtn" type="button" class="btn-ready">Listo</button>
+                <button id="cancelBtn" type="button" class="btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/cursed.js"></script>
+</body>
+</html>

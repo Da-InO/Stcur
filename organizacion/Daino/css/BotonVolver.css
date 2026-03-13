@@ -1,0 +1,39 @@
+    
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+    body {
+      font-family: 'Fredoka One', cursive, sans-serif;
+      text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+      margin: 0;
+      padding: 20px;
+    }
+
+    a.back-button {
+      position: absolute;  /* Fijamos el botón con posición absoluta */
+      top: 20px;           /* Ajustamos la distancia desde la parte superior */
+      left: 20px; 
+      align-self: flex-start;
+      margin-bottom: 15px;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: #f39c12;
+      text-decoration: none;
+      display: inline-flex;  /* Cambié display: flex a inline-flex */
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+      cursor: pointer;
+      transition: color 0.3s;
+      margin: 0;
+    }
+
+    a.back-button:hover {
+      color: #e67e22;
+    }
+
+    a.back-button svg {
+      width: 36px;
+      height: 36px;
+      fill: #f39c12;
+      flex-shrink: 0;
+    }

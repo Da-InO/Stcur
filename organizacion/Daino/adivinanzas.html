@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiempo de adivinar</title>
+    <link rel="stylesheet" href="css/adivinanzas.css">
+    <link rel="stylesheet" href="css/BotonVolver.css">
+    <link rel="icon" href="iconos/icono.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Botón para volver al inicio -->
+    <a href="index.html?slide=adivinanzas" class="back-button" aria-label="Volver al inicio">
+        <img src="Iconos/salida.png"  width="50" height="50">
+    </a>
+
+    <!-- Contenedor para la adivinanza -->
+    <div class="adivinanza-container">
+        <!-- El texto de la adivinanza -->
+        <div id="adivinanza-texto" class="adivinanza-texto">
+            ¡Vamos a adivinar! Tengo agujas pero no pincho, ¿qué soy?
+        </div>
+
+        <!-- Imágenes de posibles respuestas -->
+        <div class="respuestas">
+            <img src="imagenes/almohada.png" alt="almohada" class="respuesta1" data-correct="false">
+            <img src="imagenes/reloj.png" alt="reloj" class="respuesta2" data-correct="true">
+            <img src="imagenes/teclado.png" alt="teclado" class="respuesta3" data-correct="false">
+        </div>
+    </div>
+
+    <!-- Cuadro flotante de resultado -->
+    <div id="resultado" class="resultado" style="display:none;">
+        <div class="resultado-overlay"></div> <!-- Filtro de opacidad en el fondo -->
+        <div class="resultado-content">
+            <p id="resultado-texto">¡Correcto!</p>
+        </div>
+    </div>
+
+    <!-- Script para cargar la lógica de las adivinanzas -->
+    <script src="js/adivinanzas.js" type="module"></script>
+</body>
+</html>

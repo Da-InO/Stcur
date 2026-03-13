@@ -1,0 +1,84 @@
+/* Contenedor de los botones */
+.grid-colores {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    z-index: 10;
+    margin-top: 50px;
+}
+
+.fila {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Estilo base de los botones (Píldoras) */
+.btn-pildora {
+    width: 200px;
+    height: 85px;
+    border-radius: 100px; /* Hace la forma de cápsula */
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-pildora:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+}
+
+/* Colores específicos según tu imagen */
+.cafe {
+    background: linear-gradient(135deg, #1a0f05 0%, #7e4d26 100%);
+}
+
+.azul {
+    background: #3498db;
+}
+
+.degrade {
+    background: linear-gradient(to right, #1abc9c, #3498db, #f1c40f);
+}
+
+.rojo {
+    background: #ff3b30;
+}
+
+.amarillo {
+    background: #ffcc00;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 600px) {
+    .btn-pildora {
+        width: 150px;
+        height: 65px;
+    }
+}
+
+/* Estilo específico para el texto dentro del botón rojo */
+.btn-pildora.rojo {
+    font-family: 'Fredoka One', cursive, sans-serif;
+    font-size: 1.8rem; /* Tamaño más grande */
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Sombra de texto para que resalte igual que el logo principal */
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    
+    /* Eliminar cualquier padding que descentre el texto */
+    padding: 0;
+    line-height: 1;
+}
+
+/* Efecto hover para que el texto también reaccione */
+.btn-pildora.rojo:hover {
+    font-size: 2rem; /* Crece un poquito más al pasar el mouse */
+    transition: all 0.2s ease;
+}
