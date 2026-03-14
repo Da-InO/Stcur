@@ -173,3 +173,60 @@
     padding: 5px 8px;
     font-size: 0.8rem;
 }
+
+/* Estilo para el contador */
+.counter-box {
+    background: #333;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 2px solid #f39c12; /* Color naranja para combinar */
+    min-width: 80px;
+    text-align: center;
+}
+
+#totalCounter {
+    color: #f1c40f; /* El número resaltará en amarillo */
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* Contenedor de filtros */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.filter-btn {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.8rem;
+    background: #eee;
+    color: #555;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+
+.filter-btn:hover { transform: scale(1.05); }
+
+/* Estados activos y colores específicos */
+.filter-btn.active { border-color: #333; transform: scale(1.1); }
+
+.f-comun.active { background: #95a5a6; color: white; }
+.f-raro.active { background: #3498db; color: white; }
+.f-epico.active { background: #9b59b6; color: white; }
+.f-legendario.active { background: #f1c40f; color: black; }
+.f-mitico.active { background: #e67e22; color: white; }
+.f-god.active { background: #e74c3c; color: white; }
+.f-secreto.active { background: #2c3e50; color: white; }
+.f-og.active { background: #27ae60; color: white; }

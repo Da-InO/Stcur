@@ -24,13 +24,18 @@ const cancelBtn = document.getElementById('cancelBtn');
 const saveBtn = document.getElementById('saveBtn');
 const container = document.getElementById('cardsContainer');
 const modalTitle = document.getElementById('modalTitle');
+const totalCounter = document.getElementById('totalCounter');
 
-let editId = null; // Para saber si estamos editando un Noobini existente
+let editId = null;
 
 /* ---- Cargar Datos en Tiempo Real ---- */
-// Esta función creará la colección "noobinis" automáticamente si no existe
 onSnapshot(collection(db, "noobinis"), (snapshot) => {
     container.innerHTML = '';
+    
+    if (totalCounter) {
+        totalCounter.innerText = snapshot.size;
+    }
+
     snapshot.forEach((snap) => {
         const data = snap.data();
         const id = snap.id;
@@ -69,14 +74,12 @@ saveBtn.onclick = async () => {
     const processSave = async (imageData) => {
         try {
             if (editId) {
-                // Modo Edición
                 const docRef = doc(db, "noobinis", editId);
                 const updateData = { name, category };
                 if (imageData) updateData.image = imageData;
                 await updateDoc(docRef, updateData);
                 editId = null;
             } else {
-                // Modo Creación
                 if (!imageData) {
                     alert("Debes seleccionar una imagen.");
                     return;
@@ -98,7 +101,7 @@ saveBtn.onclick = async () => {
     }
 };
 
-/* ---- Funciones Globales para los botones de las tarjetas ---- */
+/* ---- Funciones Globales ---- */
 window.prepareEdit = (id, name, category) => {
     editId = id;
     modalTitle.innerText = "Editar Noobini";
@@ -111,6 +114,28 @@ window.deleteNoobini = async (id) => {
     if (confirm("¿Seguro que quieres eliminar este Noobini de la nube?")) {
         await deleteDoc(doc(db, "noobinis", id));
     }
+};
+
+window.filterByRarity = (rarity) => {
+    const cards = document.getElementsByClassName('card');
+    const buttons = document.getElementsByClassName('filter-btn');
+
+    // Cambiar estado activo de los botones
+    Array.from(buttons).forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.classList.contains(`f-${rarity}`) || (rarity === 'all' && btn.innerText === 'Todos')) {
+            btn.classList.add('active');
+        }
+    });
+
+    // Filtrar las tarjetas
+    Array.from(cards).forEach(card => {
+        if (rarity === 'all') {
+            card.style.display = "";
+        } else {
+            card.style.display = card.classList.contains(rarity) ? "" : "none";
+        }
+    });
 };
 
 /* ---- Eventos de Interfaz ---- */
@@ -127,7 +152,6 @@ cancelBtn.onclick = () => {
     modal.style.display = 'none';
 };
 
-// Buscador
 window.searchCards = () => {
     const input = document.getElementById('searchBar').value.toLowerCase();
     const cards = document.getElementsByClassName('card');

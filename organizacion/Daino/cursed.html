@@ -18,11 +18,27 @@
 
     <div class="header-tools">
         <input type="text" id="searchBar" placeholder="Buscar por nombre..." oninput="searchCards()">
+        
+        <div class="counter-box">
+            Total: <span id="totalCounter">0</span>
+        </div>
+
         <button id="addBtn" class="plus-btn" title="Agregar nuevo Noobini">+</button>
     </div>
 
-    <div class="container-grid" id="cardsContainer">
-        </div>
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterByRarity('all')">Todos</button>
+        <button class="filter-btn f-comun" onclick="filterByRarity('comun')">Comun</button>
+        <button class="filter-btn f-raro" onclick="filterByRarity('raro')">Raro</button>
+        <button class="filter-btn f-epico" onclick="filterByRarity('epico')">Epico</button>
+        <button class="filter-btn f-legendario" onclick="filterByRarity('legendario')">Legendario</button>
+        <button class="filter-btn f-mitico" onclick="filterByRarity('mitico')">Mitico</button>
+        <button class="filter-btn f-god" onclick="filterByRarity('god')">God</button>
+        <button class="filter-btn f-secreto" onclick="filterByRarity('secreto')">Secreto</button>
+        <button class="filter-btn f-og" onclick="filterByRarity('og')">OG</button>
+    </div>
+
+    <div class="container-grid" id="cardsContainer"></div>
 
     <div id="modalForm" class="modal">
         <div class="modal-content">
