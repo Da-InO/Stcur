@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REINA - Cyber Content</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cyber.css"> <link rel="icon" href="iconos/icono.ico" type="image/x-icon">
+</head>
+<body>
+    <a href="colores.html" class="back-button">
+        <svg viewBox="0 0 24 24" style="width:30px; height:30px; fill:none; stroke:#f39c12; stroke-width:2;">
+            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Volver
+    </a>
+
+    <div class="header-tools">
+        <input type="text" id="searchBar" placeholder="Buscar contenido cyber..." oninput="searchCards()">
+        
+        <div class="counter-box">
+            Total Cyber: <span id="totalCounter">0</span>
+        </div>
+
+        <button id="addBtn" class="plus-btn" title="Agregar nuevo Cyber Item">+</button>
+    </div>
+
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterByRarity('all')">Todos</button>
+        <button class="filter-btn f-comun" onclick="filterByRarity('comun')">Comun</button>
+        <button class="filter-btn f-raro" onclick="filterByRarity('raro')">Raro</button>
+        <button class="filter-btn f-epico" onclick="filterByRarity('epico')">Epico</button>
+        <button class="filter-btn f-legendario" onclick="filterByRarity('legendario')">Legendario</button>
+        <button class="filter-btn f-mitico" onclick="filterByRarity('mitico')">Mitico</button>
+        <button class="filter-btn f-god" onclick="filterByRarity('god')">God</button>
+        <button class="filter-btn f-secreto" onclick="filterByRarity('secreto')">Secreto</button>
+        <button class="filter-btn f-og" onclick="filterByRarity('og')">OG</button>
+    </div>
+
+    <div class="container-grid" id="cardsContainer"></div>
+
+    <div id="modalForm" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Detalles del Cyber Item</h3>
+            
+            <div class="field">
+                <label for="cardName">Nombre:</label>
+                <input type="text" id="cardName" placeholder="Ej. CyberNoob" autocomplete="off">
+            </div>
+            
+            <div class="field">
+                <label for="cardCategory">Categoría (Rareza):</label>
+                <select id="cardCategory">
+                    <option value="comun">Comun</option>
+                    <option value="raro">Raro</option>
+                    <option value="epico">Epico</option>
+                    <option value="legendario">Legendario</option>
+                    <option value="mitico">Mitico</option>
+                    <option value="god">God</option>
+                    <option value="secreto">Secreto</option>
+                    <option value="og">OG</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="cardImage">Imagen:</label>
+                <input type="file" id="cardImage" accept="image/*">
+            </div>
+            
+            <div class="modal-buttons">
+                <button id="saveBtn" type="button" class="btn-ready">Listo</button>
+                <button id="cancelBtn" type="button" class="btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/cyber.js"></script>
+</body>
+</html>

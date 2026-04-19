@@ -82,3 +82,124 @@
     font-size: 2rem; /* Crece un poquito más al pasar el mouse */
     transition: all 0.2s ease;
 }
+/* Contenedor principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Grid de botones */
+.grid-colores {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+}
+
+.fila {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Botones estilo píldora */
+.btn-pildora {
+    width: 140px;
+    height: 60px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+    font-size: 1.1rem;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btn-pildora:hover {
+    transform: scale(1.1);
+}
+
+/* Colores específicos */
+.cafe { background: #4a2c1d; }
+.azul { background: #3498db; }
+.degrade { 
+    background: linear-gradient(to right, #1abc9c, #3498db, #f1c40f); 
+}
+.rojo { 
+    background: #ff3b30; 
+    box-shadow: 0 4px 15px rgba(255, 59, 48, 0.4);
+}
+.morado { 
+    background: #a020f0; 
+    box-shadow: 0 4px 15px rgba(160, 32, 240, 0.4);
+}
+.amarillo { background: #f1c40f; }
+
+/* Botón Volver */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #f39c12;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    z-index: 100;
+}
+
+/* --- BOTÓN CYBER (DISEÑO MEJORADO) --- */
+.btn-pildora.morado {
+    background: linear-gradient(145deg, #a020f0, #6f00ff); /* Degradado profundo */
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Espaciado futurista */
+    
+    /* Borde de luz neón */
+    border: 2px solid #ce93ff; 
+    
+    /* Doble resplandor: uno morado y uno azulado */
+    box-shadow: 0 0 15px rgba(160, 32, 240, 0.6), 
+                inset 0 0 10px rgba(255, 255, 255, 0.2);
+    
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de brillo que pasa por encima (Barrido láser) */
+.btn-pildora.morado::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+    transition: all 0.5s;
+}
+
+.btn-pildora.morado:hover::after {
+    left: 120%; /* El brillo cruza el botón al pasar el mouse */
+}
+
+.btn-pildora.morado:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(160, 32, 240, 0.9), 
+                0 0 40px rgba(111, 0, 255, 0.4);
+    border-color: #fff;
+}
